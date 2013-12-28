@@ -1,0 +1,50 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 27, 2013, 11:29:53 PM
+    Author     : sagar
+*/
+
+.wrapper
+{
+    padding: 0 25px;
+}
+
+#map-canvas-and-navpoints
+{
+    /*Debugging: To be removed*/
+/*     border: 1px solid black;*/
+     margin-bottom: 10px;
+}
+
+
+#text-above-map
+{
+    /*Debugging: To be removed*/
+     border: 1px solid black;
+     margin-bottom: 10px;
+}
+
+#map-canvas
+{
+    height: 600px;
+}
+#navpoints
+{
+    height: 600px;
+}
+
+#navpoint-search
+{
+    margin-bottom: 10px;
+}
+
+#navpoint-text
+{
+    height: 500px;
+    margin-bottom: 10px;
+    background-color: white;
+}
