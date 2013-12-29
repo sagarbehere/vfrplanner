@@ -12,10 +12,13 @@
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
-        <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
         
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
         <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
+        
+        <script type="text/javascript" src="js/angular-leaflet-directive.js"></script>
+        <script type="text/javascript" src="js/vfrplanner.js"></script>
    
     </head>
     
@@ -48,8 +51,8 @@
             </div>
         </nav>
         
-        <div class="wrapper">
-            
+        <div class="wrapper" ng-app="VFRPlanner">
+       
             <div class="row" id="text-above-map">
                 <div class="col-sm-12">
                     This is some text above the map.
@@ -103,8 +106,9 @@
                 </div>
             </div>
             
-            <div class="row" id="map-canvas-and-navpoints">
-                <div class="col-sm-9" id="map-canvas"></div>
+            <div class="row" id="map-canvas-and-navpoints" ng-controller="mapController">
+                <leaflet center="center" class="col-sm-9"  id="map-canvas"></leaflet>
+<!--                <div class="col-sm-9" id="map-canvas"></div>
                 <script type="text/javascript">
                 var map = L.map('map-canvas').setView([59.3294, 18.0686], 13);
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -120,7 +124,7 @@
 			.setContent("You clicked the map at " + e.latlng.toString())
 			.openOn(map);
 		}
-                </script>
+                </script>-->
                 <div class="col-sm-3" id="navpoints">
                     <div class="input-group" id="navpoint-search">
                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
@@ -128,7 +132,7 @@
                             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </div>
                     </div>
-                    <textarea placeholder="Placeholder" id="navpoint-text" class="col-sm-12" readonly="">
+                    <textarea placeholder="Placeholder" id="navpoint-text" class="col-sm-12" readonly="" ng-model="navpointText">
 Bacon ipsum dolor sit amet swine short loin tenderloin doner jowl pork belly. Shank chuck beef ribs kevin bacon jerky. Leberkas kevin pork jerky tongue bacon. Pig filet mignon kevin, corned beef drumstick bacon ground round shankle short loin chuck meatloaf tenderloin flank capicola tail.
                     </textarea>
                     <button type="button" class="btn btn-default center-block" id="add-waypoint-button">Add waypoint</button>
