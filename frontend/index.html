@@ -108,23 +108,7 @@
             
             <div class="row" id="map-canvas-and-navpoints" ng-controller="mapController">
                 <leaflet center="center" class="col-sm-9"  id="map-canvas"></leaflet>
-<!--                <div class="col-sm-9" id="map-canvas"></div>
-                <script type="text/javascript">
-                var map = L.map('map-canvas').setView([59.3294, 18.0686], 13);
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			}).addTo(map);
-		L.marker([59.3294, 18.0686]).addTo(map).bindPopup('A pretty CSS3 popup. <br> Easily customizable.');
-		
-		map.on('click', onMapClick);
-		var popup = L.popup();
-		function onMapClick(e) {
-			popup
-			.setLatLng(e.latlng)
-			.setContent("You clicked the map at " + e.latlng.toString())
-			.openOn(map);
-		}
-                </script>-->
+
                 <div class="col-sm-3" id="navpoints">
                     <div class="input-group" id="navpoint-search">
                         <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
@@ -133,9 +117,41 @@
                         </div>
                     </div>
                     <textarea placeholder="Placeholder" id="navpoint-text" class="col-sm-12" readonly="" ng-model="navpointText">
-Bacon ipsum dolor sit amet swine short loin tenderloin doner jowl pork belly. Shank chuck beef ribs kevin bacon jerky. Leberkas kevin pork jerky tongue bacon. Pig filet mignon kevin, corned beef drumstick bacon ground round shankle short loin chuck meatloaf tenderloin flank capicola tail.
                     </textarea>
                     <button type="button" class="btn btn-default center-block" id="add-waypoint-button">Add waypoint</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs" id="tabs">
+                        <li class="active"><a href="#navigation-tab" data-toggle="tab">Navigation</a></li>
+                        <li><a href="#fuel-tab" data-toggle="tab">Fuel</a></li>
+                        <li><a href="#flightplan-tab" data-toggle="tab">Flight plan</a></li>
+                        <li><a href="#obstacles-tab" data-toggle="tab">Obstacles</a></li>
+                        <li><a href="#notam-tab" data-toggle="tab">NOTAM</a></li>
+                        <li><a href="#weather-tab" data-toggle="tab">Weather</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="navigation-tab">
+                            This will have the navigation table.
+                        </div>
+                        <div class="tab-pane fade" id="fuel-tab">
+                            This is the tab for fuel planning
+                        </div>
+                        <div class="tab-pane fade" id="flightplan-tab">
+                            Here you can generate text to be copy-pasted into AROWeb
+                        </div>
+                        <div class="tab-pane fade" id="obstacles-tab">
+                            Here you can see which obstacles you should avoid.
+                        </div>
+                        <div class="tab-pane fade" id="notam-tab">
+                            Here you will see NOTAMs applicable to your route.
+                        </div>
+                        <div class="tab-pane fade" id="weather-tab">
+                            Here you can see weather conditions en-route.
+                        </div>
+                    </div>
                 </div>
             </div>
             
