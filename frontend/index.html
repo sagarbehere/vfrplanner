@@ -9,10 +9,12 @@
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/vfrplanner.css" rel="stylesheet">
+        <link href="css/ng-grid.css" rel="stylesheet">
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/ng-grid-2.0.7.min.js"></script>
         
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
         <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
@@ -51,7 +53,7 @@
             </div>
         </nav>
         
-        <div class="wrapper" ng-app="VFRPlanner">
+        <div class="wrapper" ng-app="VFRPlanner" ng-controller="mapController">
        
             <div class="row" id="text-above-map">
                 <div class="col-sm-12">
@@ -106,7 +108,7 @@
                 </div>
             </div>
             
-            <div class="row" id="map-canvas-and-navpoints" ng-controller="mapController">
+            <div class="row" id="map-canvas-and-navpoints">
                 <leaflet center="center" class="col-sm-9"  id="map-canvas"></leaflet>
 
                 <div class="col-sm-3" id="navpoints">
@@ -134,7 +136,7 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="navigation-tab">
-                            This will have the navigation table.
+                            <div class="gridStyle" ng-grid="gridOptions"></div>
                         </div>
                         <div class="tab-pane fade" id="fuel-tab">
                             This is the tab for fuel planning
