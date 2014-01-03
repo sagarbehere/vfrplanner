@@ -9,13 +9,11 @@
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/vfrplanner.css" rel="stylesheet">
-        <link href="css/ng-grid.css" rel="stylesheet">
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/angular.js"></script>
-        <script type="text/javascript" src="js/ng-grid-2.0.7.min.js"></script>
-        
+                
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
         <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
         
@@ -136,7 +134,40 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="navigation-tab">
-                            <div class="gridStyle" ng-grid="gridOptions"></div>
+                            <div class="table-responsive">
+                                <table class="table table-condensed table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Wind</th>
+                                            <th>ALT</th>
+                                            <th>TT</th>
+                                            <th>TAS</th>
+                                            <th>wca</th>
+                                            <th>TH</th>
+                                            <th>var</th>
+                                            <th>MH</th>
+                                            <th>dev</th>
+                                            <th>CH</th>
+                                            <th>Waypoint</th>
+                                            <th colspan="2">Distance</th>
+                                            <th>GS</th>
+                                            <th colspan="3">Time</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Direction</th>
+                                            <th>Speed</th>
+                                            <td colspan="9" style="text-align: right;color: blue;">ENTER STARTING POINT HERE---></td>
+                                            <td>Starting Point</td>
+                                            <th>leg</th>
+                                            <th>acc</th>
+                                            <th></th>
+                                            <th>int</th>
+                                            <th>acc</th>
+                                            <th>ETO</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="fuel-tab">
                             This is the tab for fuel planning
