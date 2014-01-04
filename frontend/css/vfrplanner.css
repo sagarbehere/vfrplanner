@@ -69,3 +69,37 @@ th
 /*    width: 400px; */
     height: 300px;
 }
+
+.dgrid-header .dgrid-cell
+{
+text-align: center;
+vertical-align: middle;
+}
+
+.dgrid-content .dgrid-cell
+{
+text-align: center;
+vertical-align: middle;
+}
+
+#navgrid
+{
+    height: 350px;
+}
+
+.dgrid-scroller
+{
+    position: relative;
+    overflow: auto;
+}
+
+#navgrid .field-wd, .field-alt, .field-tt, .field-tas, .field-wca,
+    .field-th, .field-var, .field-mh, .field-dev, .field-ch,
+    .field-dleg, .field-dacc, .field-gs, .field-tint, .field-tacc, .field-teto
+{
+    width: 5%
+}
+#navgrid .field-ws
+{
+    width: 7%
+}

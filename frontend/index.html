@@ -9,6 +9,8 @@
         
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/vfrplanner.css" rel="stylesheet">
+        <link href="dgrid/css/dgrid.css" rel="stylesheet">
+        <link href="dijit/themes/claro/claro.css" rel="stylesheet">
         
         <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -17,8 +19,11 @@
         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
         <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
         
+        <script src="dojo/dojo.js" data-dojo-config="async: true" ></script>
         <script type="text/javascript" src="js/angular-leaflet-directive.js"></script>
         <script type="text/javascript" src="js/vfrplanner.js"></script>
+        
+        
    
     </head>
     
@@ -170,7 +175,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="fuel-tab">
-                            This is the tab for fuel planning
+                            <div id="navgrid"></div>
                         </div>
                         <div class="tab-pane fade" id="flightplan-tab">
                             Here you can generate text to be copy-pasted into AROWeb
