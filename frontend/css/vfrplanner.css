@@ -63,3 +63,11 @@ th
 {
     text-align: center;
 }
+
+/* Without this, there comes a space between table header and body, when sScrollY is enabled */
+table.dataTable {
+	clear: both;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	max-width: none !important;
+}
