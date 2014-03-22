@@ -10,7 +10,6 @@ $(document).ready(function(){
     var aaData = [];
     
     $('#navTable').dataTable({
-        "sDom": "<'row'<'col-6'f><'col-6'l>r>t<'row'<'col-6'i><'col-6'p>>",
         "aaData": aaData,
         "bFilter": false,
         "bInfo": false,
