@@ -21,6 +21,8 @@
         <script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
         
         <script type="text/javascript" src="js/angular-leaflet-directive.js"></script>
+        <script type="text/javascript" src="js/geo.js"></script>
+        <script type="text/javascript" src="js/latlon.js"></script>
         <script type="text/javascript" src="js/vfrplanner.js"></script>
         
         
@@ -123,7 +125,7 @@
                     </div>
                     <textarea placeholder="Placeholder" id="navpoint-text" class="col-sm-12" readonly="" ng-model="navpointText">
                     </textarea>
-                    <button type="button" class="btn btn-default center-block" id="add-waypoint-button">Add waypoint</button>
+                    <button type="button" class="btn btn-default center-block" id="add-waypoint-button" ng-click="addWayPointToTable()">Add waypoint</button>
                 </div>
             </div>
             
