@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('VFRPlanner', ['leaflet-directive']);
+var currentWayPoint = {name: "NoName", lat: "NoLat", lon: "NoLon"};
 
 function rowAdded (nRow, aData, iDataIndex){
     //it seems aData is array containing row data and iDataIndex is row number, starting from 0
@@ -34,7 +34,20 @@ function rowAdded (nRow, aData, iDataIndex){
     
 }
 
+function onMapClick(e) {
+    $('#navpoint-text').val("You clicked on [" + e.latlng.lat +","+e.latlng.lng+"]");
+    currentWayPoint.lat = e.latlng.lat;
+    currentWayPoint.lon = e.latlng.lng;
+    //alert("You clicked the map at " + e.latlng);
+}
+
 $(document).ready(function(){
+    
+    var map = L.map('map').setView([59.3294,18.0686],13);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    
     var aaData = [];
     
     $('#navTable').dataTable({
@@ -49,35 +62,13 @@ $(document).ready(function(){
         "fnCreatedRow": rowAdded
     });
     //$('#navTable').dataTable().fnAddData(['', '', '', '', '','','', '', '','', '', 'Bromma\n[59.2,17.1]','','','','','','']);
+    
+    map.on('click', onMapClick);
 });
 
-function addWayPoint(wayPoint) {
+function addWayPoint() {
     //FIXME: Better error handling in case no point is clicked yet
 
-    $('#navTable').dataTable().fnAddData(['', '', '', '', '','','', '', '','', '', wayPoint.name+"\n"+"["+wayPoint.lat+","+wayPoint.lon+"]",'','','','','','']);
+    $('#navTable').dataTable().fnAddData(['', '', '', '', '','','', '', '','', '', currentWayPoint.name+"\n"+"["+currentWayPoint.lat.toFixed(4)+","+currentWayPoint.lon.toFixed(4)+"]",'','','','','','']);
     $('#navTable').dataTable().parent().scrollTop(9999);
 }
-
-app.controller("mapController", [ '$scope', 'leafletEvents', function($scope, leafletEvents){
-        var currentWayPoint = {name: "NoName", lat: "NoLat", lon: "NoLon"};
-        $scope.navpointText = "No point clicked yet.";
-        $scope.center = {
-            lat: 59.3294,
-            lng: 18.0686,
-            zoom: 13
-        };
-
-        $scope.mapClickedPoint = {name: "NoName", lat: "NoLat", lon: "NoLon"};
-        $scope.$on('leafletDirectiveMap.click', function(e, args) {
-            $scope.mapClickedPoint.lat = args.leafletEvent.latlng.lat.toString();
-            $scope.mapClickedPoint.lon = args.leafletEvent.latlng.lng.toString();
-            currentWayPoint.lat = args.leafletEvent.latlng.lat.toFixed(3).toString();
-            currentWayPoint.lon = args.leafletEvent.latlng.lng.toFixed(3).toString();
-            $scope.navpointText = "You clicked on [ " + currentWayPoint.lat + ", " + currentWayPoint.lon + "]";
-            //angular.element(navTable).dataTable().fnAddData(['', '', '', '', '','','', '', '','', '', 'Bromma','','','','','','']);
-            //angular.element(navTable).dataTable().parent().scrollTop(9999);
-        });
-        $scope.addWayPointToTable = function() {
-            addWayPoint(currentWayPoint);
-        };
-}]);
